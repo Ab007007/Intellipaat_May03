@@ -11,5 +11,19 @@ public class StringsDemo {
 		System.out.println(str);
 		System.out.println(str.hashCode());
 		
+		
+		int i = 0;
+		
+		System.out.println(++i);
+		/*
+		 * split
+		 * indexOf
+		 * lastIndexOf
+		 * chatAt
+		 * length
+		 * 
+		 * 
+		 */
+		
 	}
 }
