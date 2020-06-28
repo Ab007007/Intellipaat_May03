@@ -8,14 +8,14 @@ public class CreateCustomer
 	public static void main(String[] args) 
 	{
 		System.out.println("---Create Customer Test ---");
-		WebDriver driver = ActiTimeUtils.getDriver();
+		WebDriver driver = ActiTimeUtils.getDriver("ff");
 		
 		ActiTimeUtils.launchApp();
 		ActiTimeUtils.login("admin", "manager");
 		
 		ActiTimeUtils.selectModule("tasks");
 		ActiTimeUtils.clickOnNewCustomerButton(driver);
-		ActiTimeUtils.createCustomer("May-Batch-Customer2", "May-Batch-Customer2-Desc");
+		ActiTimeUtils.createCustomer("May-Batch-Customer3", "May-Batch-Customer3-Desc");
 		
 		ActiTimeUtils.logout();
 		
