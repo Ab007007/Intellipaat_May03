@@ -1,0 +1,5 @@
+WinWaitActive("Open")
+Sleep(1000)
+ControlSetText("Open","","Edit1","D:\Intellipaat\Intellipaat_03_May\Eclipse_WS\toasts.png")
+Sleep(2000)
+ControlClick("Open","&Open","Button1")
