@@ -28,7 +28,7 @@ public class CreateCustomerUsingExternalData
 			customername = ExcelUtils.getCellData(sheetName, i, 0);
 			customerdesc = ExcelUtils.getCellData(sheetName, i, 1);
 			
-			ActiTimeUtils.clickOnNewCustomerButton(driver);
+			ActiTimeUtils.clickOnNewCustomerButton();
 			ActiTimeUtils.createCustomer(customername, customerdesc);
 			
 		}

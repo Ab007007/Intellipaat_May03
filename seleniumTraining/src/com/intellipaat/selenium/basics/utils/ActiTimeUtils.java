@@ -1,9 +1,17 @@
 package com.intellipaat.selenium.basics.utils;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 
 public class ActiTimeUtils extends DriverUtils
 {
@@ -15,7 +23,7 @@ public class ActiTimeUtils extends DriverUtils
 	public static void launchApp(String url)
 	{
 		driver.get(url);
-		validateTitle("actiTIME - Login");
+		//validateTitle("actiTIME - Login");
 	}
 	
 	public static void launchApp()
@@ -56,7 +64,7 @@ public class ActiTimeUtils extends DriverUtils
 		
 	}
 
-	public static void clickOnNewCustomerButton(WebDriver driver) {
+	public static void clickOnNewCustomerButton() {
 		ActiTimeUtils.click("xpath", "//div[@class='addNewContainer']");
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOf(ActiTimeUtils.getElement("xpath", "//div[@class='dropdownContainer addNewMenu']")));
@@ -79,6 +87,23 @@ public class ActiTimeUtils extends DriverUtils
 		WebDriverWait disappearWait = new WebDriverWait(driver, 10);
 		disappearWait.until(ExpectedConditions.invisibilityOf(ActiTimeUtils.getElement("xpath", "//div[@class='toasts']")));
 		
+	}
+	public static String dateAndTime()
+	{
+		return new Date().toString().replace(" ", "_").replace(":", "_");
+	}
+	
+	
+	public static void captureScreenshot(ITestResult result) throws IOException
+	{
+		if(result.getStatus() == ITestResult.FAILURE)
+		{
+			
+			TakesScreenshot ts = (TakesScreenshot)driver;
+			File srcFile = ts.getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(srcFile, new File("ss/ss_"+dateAndTime()+ ".png"));
+
+		}
 	}
 
 }

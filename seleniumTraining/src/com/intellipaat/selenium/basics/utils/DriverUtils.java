@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 
 public class DriverUtils {
 
@@ -143,13 +144,8 @@ public class DriverUtils {
 	public static void validateTitle(String expecteTitle)
 	{
 		String actualTitle = driver.getTitle();
-		if(actualTitle.equals(expecteTitle)) {
-			System.out.println("title Matched- " + actualTitle);
-		}
-		else
-		{
-			System.out.println("title Mismatched" + actualTitle);
-		}
+		
+		Assert.assertEquals(actualTitle, expecteTitle);
 	}
 
 	public static void selectCheckBox(String type, String value)

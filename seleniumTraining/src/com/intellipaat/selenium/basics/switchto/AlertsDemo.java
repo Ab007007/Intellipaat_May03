@@ -16,7 +16,7 @@ public class AlertsDemo {
 		ActiTimeUtils.login("admin", "manager");
 		
 		ActiTimeUtils.selectModule("tasks");
-		ActiTimeUtils.clickOnNewCustomerButton(driver);
+		ActiTimeUtils.clickOnNewCustomerButton();
 		ActiTimeUtils.type("id", "customerLightBox_nameField", "DummyData");
 		Thread.sleep(2000);
 		Actions act =  new Actions(driver);

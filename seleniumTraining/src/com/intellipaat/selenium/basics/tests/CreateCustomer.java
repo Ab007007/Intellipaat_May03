@@ -14,7 +14,7 @@ public class CreateCustomer
 		ActiTimeUtils.login("admin", "manager");
 		
 		ActiTimeUtils.selectModule("tasks");
-		ActiTimeUtils.clickOnNewCustomerButton(driver);
+		ActiTimeUtils.clickOnNewCustomerButton();
 		ActiTimeUtils.createCustomer("May-Batch-Customer3", "May-Batch-Customer3-Desc");
 		
 		ActiTimeUtils.logout();
